@@ -107,15 +107,16 @@ namespace Load_PTTDATA
         {
             Connect();
             conn.Open();
- 
 
-            string query = $"select TOP 300  * from dbo.PTTDATA where 1=1 and pop<{textBox1.Text} and pop>{textBox2.Text}";
+
+            string query = $"select TOP 300  * from dbo.PTTDATA where 1=1 and {textBox1.Text}>pop and pop>{textBox2.Text} order by pop desc";
             SqlCommand cmd = new SqlCommand(query, conn);
             SqlDataAdapter dat = new SqlDataAdapter();
             dat.SelectCommand = cmd;
             dat.Fill(dt);
             dat.Dispose();
             dataGridView1.DataSource = dt;
+            dataGridView1drowcolor();
             conn.Close();
         }
 
@@ -185,7 +186,7 @@ namespace Load_PTTDATA
             try
             {
                 FormView view = new FormView();
-                var target = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                var target = dataGridView1.CurrentRow.Cells[5].Value.ToString();
                 view.SetValue = target + "\n\n\n";
                 view.Show();
 

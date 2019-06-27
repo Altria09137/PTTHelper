@@ -15,11 +15,13 @@ namespace Load_PTTDATA
         public FormView()
         {
             InitializeComponent();
+           
         }
         public FormView(String arg)
         {
             InitializeComponent();
             label1.Text = arg;
+        
         }
 
         private void FormView_Load(object sender, EventArgs e)
@@ -33,6 +35,7 @@ namespace Load_PTTDATA
             {
                 label1.Text = value;
                 textBox1.Text = label1.Text;
+                this.label1.ForeColor = Color.White;
             }
             get
             {
