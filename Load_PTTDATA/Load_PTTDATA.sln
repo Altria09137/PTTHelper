@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29009.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Load_PTTDATA", "Load_PTTDATA.csproj", "{F18FB82C-6CD6-4B0A-BF08-5CFB7A576538}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTT_Helper", "D:\VirtualBox\PTT_Helper(2)\PTT_Helper\PTT_Helper.csproj", "{0B894ABA-B007-4EE1-8C99-226B44106942}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F18FB82C-6CD6-4B0A-BF08-5CFB7A576538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18FB82C-6CD6-4B0A-BF08-5CFB7A576538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18FB82C-6CD6-4B0A-BF08-5CFB7A576538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18FB82C-6CD6-4B0A-BF08-5CFB7A576538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B894ABA-B007-4EE1-8C99-226B44106942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B894ABA-B007-4EE1-8C99-226B44106942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B894ABA-B007-4EE1-8C99-226B44106942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B894ABA-B007-4EE1-8C99-226B44106942}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {831D76D1-59A9-413E-ADA0-2D5CDB9D27D6}
+	EndGlobalSection
+EndGlobal
