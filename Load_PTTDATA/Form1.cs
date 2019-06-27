@@ -203,11 +203,13 @@ namespace Load_PTTDATA
             if(comboBox1.SelectedIndex == 0)
             {
                 getMySQLDATA();
+                dataGridViewSizeMode();
                 dataGridView1drowcolor();
             }
             else if (comboBox1.SelectedIndex == 1)
             {
                 Connect();
+                dataGridViewSizeMode();
                 string query = "SELECT TOP 300 *  FROM dbo.PTTDATA ORDER BY ID DESC";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -223,6 +225,7 @@ namespace Load_PTTDATA
             else if (comboBox1.SelectedIndex == 2 )
             {
                 Connect();
+                dataGridViewSizeMode();
                 string query = "select * from dbo.PTTDATA order by cast( pop as integer) DESC ";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -238,6 +241,7 @@ namespace Load_PTTDATA
             {
                 
                 Connect();
+                dataGridViewSizeMode();
                 conn.Open();
                 Form2 input = new Form2();
                 DialogResult dr = input.ShowDialog();
@@ -272,6 +276,7 @@ namespace Load_PTTDATA
             else if (comboBox1.SelectedIndex == 4 )
             {
                 Connect();
+                dataGridViewSizeMode();
                 conn.Open();
                 Form3 input = new Form3();
                 DialogResult dr = input.ShowDialog();
@@ -326,6 +331,14 @@ namespace Load_PTTDATA
         private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             dt.Clear();
+        }
+
+        private void dataGridViewSizeMode()
+        {
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
         }
     }    
 }

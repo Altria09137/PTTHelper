@@ -136,7 +136,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("標楷體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button6.Location = new System.Drawing.Point(343, -2);
+            this.button6.Location = new System.Drawing.Point(379, -2);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 26);
             this.button6.TabIndex = 7;
@@ -146,6 +146,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("標楷體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.comboBox1.FormattingEnabled = true;
@@ -158,7 +159,7 @@
             // button8
             // 
             this.button8.Font = new System.Drawing.Font("標楷體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button8.Location = new System.Drawing.Point(163, -1);
+            this.button8.Location = new System.Drawing.Point(183, -1);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(75, 28);
             this.button8.TabIndex = 12;
@@ -169,7 +170,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("標楷體", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(253, -1);
+            this.button4.Location = new System.Drawing.Point(278, -1);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 28);
             this.button4.TabIndex = 4;
@@ -181,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(979, 633);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.comboBox1);
