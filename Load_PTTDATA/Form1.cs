@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Runtime.InteropServices;
 
 namespace Load_PTTDATA
 {
@@ -16,8 +17,47 @@ namespace Load_PTTDATA
     {
         SqlConnection conn;
         DataTable dt = new DataTable();
-      
+        string a, b, c;
 
+        //DLL申明
+        [StructLayout(LayoutKind.Sequential)]
+        public struct MARGINS
+        {
+            public int Left;
+            public int Right;
+            public int Top;
+            public int Bottom;
+        }
+
+        //DLL申明
+        [DllImport("dwmapi.dll", PreserveSig = false)]
+        static extern void DwmExtendFrameIntoClientArea(IntPtr hwnd, ref MARGINS
+        margins);
+
+        //DLL申明
+        [DllImport("dwmapi.dll", PreserveSig = false)]
+        static extern bool DwmIsCompositionEnabled();
+
+        protected override void OnLoad(EventArgs e)
+        {
+            if (DwmIsCompositionEnabled())
+            {
+                MARGINS margins = new MARGINS();
+                margins.Right = margins.Left = margins.Top = margins.Bottom =
+        this.Width + this.Height;
+                DwmExtendFrameIntoClientArea(this.Handle, ref margins);
+            }
+            base.OnLoad(e);
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+            if (DwmIsCompositionEnabled())
+            {
+                e.Graphics.Clear(Color.Black);
+            }
+        }
 
         public Form1()
         {
@@ -87,6 +127,7 @@ namespace Load_PTTDATA
         private void Button4_Click(object sender, EventArgs e)
         {
             dt.Clear();
+            this.comboBox1.SelectedIndex = 0;
         }
 
         private void Button7_Click(object sender, EventArgs e)
@@ -204,12 +245,12 @@ namespace Load_PTTDATA
                 if (dr == DialogResult.OK)
                 {
                     string[] aryStr = input.GetMsg().Split('@');
-                    textBox1.Text = aryStr[0];
-                    textBox2.Text = aryStr[1];
+                    a = aryStr[0];
+                    b = aryStr[1];
 
 
 
-                    string query = $"select TOP 300  * from dbo.PTTDATA where 1=1 and {textBox1.Text}>pop and pop>{textBox2.Text} order by pop desc";
+                    string query = $"select TOP 300  * from dbo.PTTDATA where 1=1 and {a}>pop and pop>{b} order by pop desc";
                     SqlCommand cmd = new SqlCommand(query, conn);
                     SqlDataAdapter dat = new SqlDataAdapter();
                     dat.SelectCommand = cmd;
@@ -236,12 +277,12 @@ namespace Load_PTTDATA
                 DialogResult dr = input.ShowDialog();
                 if (dr == DialogResult.OK)
                 {
-                    textBox3.Text = input.GetMsg();
+                    c = input.GetMsg();
 
                     try
                     {
-                        var popvalue = textBox3.Text.ToString();
-                           string query = $"SELECT TOP 300 * FROM dbo.PTTDATA  where pop='{popvalue}' ";
+                        
+                           string query = $"SELECT TOP 300 * FROM dbo.PTTDATA  where pop={c} ";
                             SqlCommand cmd = new SqlCommand(query, conn);
                             SqlDataAdapter dat = new SqlDataAdapter();
                             dat.SelectCommand = cmd;

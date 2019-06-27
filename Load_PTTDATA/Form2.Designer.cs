@@ -80,6 +80,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Key in Regional";
             this.ResumeLayout(false);
             this.PerformLayout();
