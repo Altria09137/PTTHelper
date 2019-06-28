@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PTTDATALOAD.mvc.Models;
+
+
 
 namespace PTTDATALOAD.mvc.Controllers
 {
@@ -10,21 +13,12 @@ namespace PTTDATALOAD.mvc.Controllers
     {
         public ActionResult Index()
         {
+            PTTDATA PTTconn = new PTTDATA();
+            List<PTTDATAtype> cards = PTTconn.GetPTTDATA();
+            ViewBag.cards = cards;
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
+       
     }
 }

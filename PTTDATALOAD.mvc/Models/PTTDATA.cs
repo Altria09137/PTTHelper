@@ -21,7 +21,7 @@ namespace PTTDATALOAD.mvc.Models
         {
             List<PTTDATAtype> cards = new List<PTTDATAtype>();
             SqlConnection sqlConnection = new SqlConnection(Constr);
-            SqlCommand sqlCommand = new SqlCommand("SELECT TOP 300 * FROM dbo.PTTDATA");
+            SqlCommand sqlCommand = new SqlCommand("SELECT * FROM dbo.PTTDATA order by cast( pop as integer) DESC");
             sqlCommand.Connection = sqlConnection;
             sqlConnection.Open();
 
@@ -32,7 +32,7 @@ namespace PTTDATALOAD.mvc.Models
                 {
                     PTTDATAtype card = new PTTDATAtype
                     {
-                        ID = reader.GetInt32(reader.GetOrdinal("id")),
+                        ID = reader.GetInt32(reader.GetOrdinal("ID")),
                         pop = reader.GetString(reader.GetOrdinal("pop")),
                         title = reader.GetString(reader.GetOrdinal("title")),
                         author = reader.GetString(reader.GetOrdinal("author")),
