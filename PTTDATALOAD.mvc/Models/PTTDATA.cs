@@ -2,28 +2,58 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace PTTDATALOAD.mvc.Models
 {
     public class PTTDATA
     {
-        public class DATATable
-        {
-            public int ID { get; set; }
-            public string pop { get; set; }
-            public string title { get; set; }
-            public string author { get; set; }
-            public string URL { get; set; }
 
-            public string context { get; set; }
+
+        //WIN - K602VN7RVVF\SQLEXPRESS;Initial Catalog = PTT_Helper; Persist Security Info=True;User ID = sa; Password=Miku01
+        private readonly string Constr = @"Data Source=WIN-K602VN7RVVF\SQLEXPRESS;Initial Catalog=PTT_Helper;Persist Security Info=True;User ID=sa;Password=Miku01";
+
+
+
+
+        public List<PTTDATAtype> GetPTTDATA()
+        {
+            List<PTTDATAtype> cards = new List<PTTDATAtype>();
+            SqlConnection sqlConnection = new SqlConnection(Constr);
+            SqlCommand sqlCommand = new SqlCommand("SELECT TOP 300 * FROM dbo.PTTDATA");
+            sqlCommand.Connection = sqlConnection;
+            sqlConnection.Open();
+
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    PTTDATAtype card = new PTTDATAtype
+                    {
+                        ID = reader.GetInt32(reader.GetOrdinal("id")),
+                        pop = reader.GetString(reader.GetOrdinal("pop")),
+                        title = reader.GetString(reader.GetOrdinal("title")),
+                        author = reader.GetString(reader.GetOrdinal("author")),
+                        URL = reader.GetString(reader.GetOrdinal("URL")),
+                        context = reader.GetString(reader.GetOrdinal("context")),
+                    };
+                    cards.Add(card);
+                }
+            }
+            else
+            {
+                Console.WriteLine("資料庫為空！");
+            }
+            sqlConnection.Close();
+            return cards;
         }
 
-
     }
 
-    public class PTTDBContext : DbContext
-    {
-        public DbSet<PTTDATA> PTTDATA { get; set; }
-    }
+
+    
+
+ 
 }
