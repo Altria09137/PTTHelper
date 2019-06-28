@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Load_PTTDATA", "Load_PTTDAT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTT_Helper", "D:\VirtualBox\PTT_Helper(2)\PTT_Helper\PTT_Helper.csproj", "{0B894ABA-B007-4EE1-8C99-226B44106942}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTTDATALOAD.mvc", "..\PTTDATALOAD.mvc\PTTDATALOAD.mvc.csproj", "{1B94C323-0B4D-4662-8EF2-CB669B93B216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0B894ABA-B007-4EE1-8C99-226B44106942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B894ABA-B007-4EE1-8C99-226B44106942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B894ABA-B007-4EE1-8C99-226B44106942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
