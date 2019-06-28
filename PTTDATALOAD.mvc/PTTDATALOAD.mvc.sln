@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTTDATALOAD.mvc", "PTTDATALOAD.mvc.csproj", "{1B94C323-0B4D-4662-8EF2-CB669B93B216}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B94C323-0B4D-4662-8EF2-CB669B93B216}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {343221ED-A89A-4340-976C-6BC949314532}
+	EndGlobalSection
+EndGlobal
