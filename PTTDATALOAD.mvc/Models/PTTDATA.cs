@@ -60,14 +60,17 @@ namespace PTTDATALOAD.mvc.Models
 
                     PTTDATAtype card = new PTTDATAtype
                     {
-                        ID = Convert.ToInt32(dt.Rows[i]["ID"]),
+                        ID = Convert.ToString(dt.Rows[i]["ID"]),
                         pop = Convert.ToString(dt.Rows[i]["pop"]),
                         title = Convert.ToString(dt.Rows[i]["title"]),
                         author = Convert.ToString(dt.Rows[i]["author"]),
-                        URL = Convert.ToString(dt.Rows[i]["URL"]),
-                        context = Convert.ToString(dt.Rows[i]["context"]),
+                        URL = "",// Convert.ToString(dt.Rows[i]["URL"]),
+                        context = ""//Convert.ToString(dt.Rows[i]["context"])
+
                     };
+
                     cards.Add(card);
+                    
                 };
 
 
@@ -76,9 +79,8 @@ namespace PTTDATALOAD.mvc.Models
             {
                 Console.WriteLine(e.Message);
             }
-
-
-            return cards;
+          
+                return cards;
         }
 
     }

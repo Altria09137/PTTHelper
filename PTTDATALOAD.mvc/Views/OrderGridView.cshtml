@@ -1,0 +1,58 @@
+﻿@using PTTDATALOAD.mvc.Models;
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary list-panel" id="list-panel">
+            <div class="panel-heading list-panel-heading">
+                <h1 class="panel-title list-panel-title">Orders 資料表</h1>
+            </div>
+            <div class="panel-body">
+                <table id="orders-data-table" class="table table-striped table-bordered" style="width:100%;"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{
+        List<PTTDATAtype> cards = ViewBag.cards;
+        foreach (PTTDATAtype card in cards)
+        {
+
+            <script type="text/javascript">
+        var orderListVM;
+        $(function () {
+            orderListVM = {
+                dt: null,
+
+                init: function () {
+                    dt = $('#orders-data-table').DataTable({
+                        "serverSide": true,
+                        "processing": true,
+                        "ajax": {
+                            "url": "@Url.Action("Get","Order")"
+                        },
+                        "columns": [[
+                            { field:@card.ID, title: 'ID' },
+                            { field:@card.pop, title: 'pop' },
+                            { field:@card.title, title: 'title' },
+                            { field:@card.author, title: 'author' },
+                            { field:@card.URL, title: 'URL' },
+                            { field:@card.context, title: 'context' }
+
+
+                        ]],
+                        
+                    });
+                }
+            }
+
+            // initialize the datatables
+            orderListVM.init();
+
+        });
+            </script>
+        }
+    }
+}

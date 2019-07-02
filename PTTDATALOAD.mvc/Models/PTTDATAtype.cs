@@ -7,7 +7,7 @@ namespace PTTDATALOAD.mvc.Models
 {
     public class PTTDATAtype
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string pop { get; set; }
         public string title { get; set; }
         public string author { get; set; }

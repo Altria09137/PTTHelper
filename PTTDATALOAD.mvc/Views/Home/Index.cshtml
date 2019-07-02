@@ -1,20 +1,38 @@
 ﻿@using PTTDATALOAD.mvc.Models;
 @{
     ViewBag.Title = "Home Page";
+
     List<PTTDATAtype> cards = ViewBag.cards;
 
 }
-@{
-    foreach(PTTDATAtype card in cards)
-    {
-    <div>
-        <span> @card.ID<</span>>
-        <span> @card.pop<</span>>
-        <span> @card.title<</span>>
-        <span> @card.author<</span>>
-        <span> @card.URL<</span>>
-        <span> @card.context<</span>>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>pop</th>
+                <th>title</th>
+                <th>author</th>
+                <th>URL</th>
+                <th>context</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (PTTDATAtype card in cards)
+                {
+                    
+                        <tr>
+                            <td>@card.ID</td>
+                            <td>@card.pop</td>
+                            <td>@card.title</td>
+                            <td>@card.author</td>
+                            <td>@card.URL</td>
+                            <td>@card.context</td>
+                        </tr>
 
-    </div>
-    }
- }
+                   
+                }
+            }
+
+    </table>
