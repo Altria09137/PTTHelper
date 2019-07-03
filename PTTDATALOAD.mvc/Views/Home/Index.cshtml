@@ -1,19 +1,20 @@
 ﻿@using PTTDATALOAD.mvc.Models;
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "PTTDATA";
 
     List<PTTDATAtype> cards = ViewBag.cards;
 
 }
-    <table class="table">
+
+
+
+ <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>pop</th>
                 <th>title</th>
                 <th>author</th>
-                <th>URL</th>
-                <th>context</th>
                 <th></th>
             </tr>
         </thead>
@@ -23,12 +24,14 @@
                 {
                     
                         <tr>
-                            <td>@card.ID</td>
-                            <td>@card.pop</td>
-                            <td>@card.title</td>
-                            <td>@card.author</td>
-                            <td>@card.URL</td>
-                            <td>@card.context</td>
+                            
+                            <th>@card.ID</th>
+                            <th>@card.pop</th>
+                            <th>@card.title</th>
+                            <th>@card.author</th>
+                            <th>@card.URL</th>
+                            <th>@card.context</th>
+
                         </tr>
 
                    
@@ -36,3 +39,6 @@
             }
 
     </table>
+<p>
+
+</p>

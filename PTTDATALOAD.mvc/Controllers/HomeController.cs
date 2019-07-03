@@ -13,12 +13,33 @@ namespace PTTDATALOAD.mvc.Controllers
     {
         public ActionResult Index()
         {
-            PTTDATA PTTconn = new PTTDATA();
-            List<PTTDATAtype> cards = PTTconn.GetPTTDATA();
+            DBmanager dBmanager = new DBmanager();
+            List<PTTDATAtype> cards = dBmanager.GetPTTDATA();
             ViewBag.cards = cards;
             return View();
         }
 
-       
+        public ActionResult Search(string pop)
+        {
+            Search dBmanager = new Search();
+            PTTDATAtype card = dBmanager.GetPTTDATApop(pop);
+            return View(card);
+        }
+
+        [HttpPost]
+        public ActionResult Search()
+        {
+
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
+
+
     }
 }
