@@ -1,44 +1,64 @@
 ﻿@using PTTDATALOAD.mvc.Models;
-@{
-    ViewBag.Title = "PTTDATA";
+@using MvcPaging
+@using PagedList.Mvc;
 
-    List<PTTDATAtype> cards = ViewBag.cards;
+
+
+@{
+
+    PagedList.IPagedList<PTTDATAtype> myPageList = (PagedList.IPagedList<PTTDATAtype>)ViewBag.MyPageList;
+    Layout = null;
+
 
 }
 
 
+    <html>
 
- <table class="table">
-        <thead>
+    <head>
+
+        <meta name="viewport" content="width=device-width" />
+
+        <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+        <title>PTTDATA</title>
+
+        <table class="table">
+    </head>
+
+    <body>
+        <table>
+
             <tr>
+
                 <th>ID</th>
                 <th>pop</th>
                 <th>title</th>
                 <th>author</th>
                 <th></th>
+
             </tr>
-        </thead>
-        <tbody>
             @{
-                foreach (PTTDATAtype card in cards)
+                foreach (PTTDATAtype card in myPageList)
                 {
-                    
-                        <tr>
-                            
-                            <th>@card.ID</th>
-                            <th>@card.pop</th>
-                            <th>@card.title</th>
-                            <th>@card.author</th>
-                            <th>@card.URL</th>
-                            <th>@card.context</th>
 
-                        </tr>
+                    <tr>
 
-                   
+                        <th>@card.ID</th>
+                        <th>@card.pop</th>
+                        <th>@card.title</th>
+                        <th>@card.author</th>
+                        <th>@card.URL</th>
+                        <th>@card.context</th>
+
+                    </tr>
+
+
                 }
             }
 
-    </table>
-<p>
-
-</p>
+        </table>
+        每頁 @myPageList.PageSize 條記錄，共 @myPageList.PageCount 頁，當前第 @myPageList.PageNumber 頁
+        @Html.PagedListPager(myPageList, page => Url.Action("Index", new { page }))
+    </body>
+    </html>

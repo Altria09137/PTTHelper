@@ -226,7 +226,7 @@ namespace Load_PTTDATA
             {
                 Connect();
                 dataGridViewSizeMode();
-                string query = "select  TOP 300 * from dbo.PTTDATA order by pop DESC ";
+                string query = "select  TOP 300 * from dbo.PTTDATA order by  cast( pop as integer) DESC ";
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(query, conn);
                 SqlDataAdapter dat = new SqlDataAdapter();

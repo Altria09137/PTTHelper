@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PTTDATALOAD.mvc.Models;
+using PagedList;
 
 
 
@@ -11,11 +12,16 @@ namespace PTTDATALOAD.mvc.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
+
+          
+
             DBmanager dBmanager = new DBmanager();
             List<PTTDATAtype> cards = dBmanager.GetPTTDATA();
-            ViewBag.cards = cards;
+            ViewBag.MyPageList = cards.ToPagedList(page, 25);
+           
+  
             return View();
         }
 
