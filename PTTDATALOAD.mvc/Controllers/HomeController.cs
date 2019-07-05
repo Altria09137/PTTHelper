@@ -53,7 +53,23 @@ namespace PTTDATALOAD.mvc.Controllers
             return View();
         }
 
-   
+        [HttpPost]
+        public ActionResult TitleSearch(string title, int page = 1)
+        {
+            Titlesearch dBmanager = new Titlesearch();
+            List<PTTDATAtype> cards = dBmanager.GetPTTDATAtitle(title);
+            ViewBag.MyPageList = cards.ToPagedList(page, 25);
+
+            return View();
+        }
+
+        public ActionResult SearchDATAtitle()
+        {
+
+
+            return View();
+        }
+
 
 
 

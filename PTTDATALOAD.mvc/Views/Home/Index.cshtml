@@ -29,7 +29,10 @@
     <body>
         <table>
             <p>
-                @Html.ActionLink("查詢","SearchDATAget")
+                @Html.ActionLink("查詢人氣", "SearchDATAget")
+            </p>
+            <p>
+                @Html.ActionLink("查詢標題關鍵字", "SearchDATAtitle")
             </p>
             <tr>
 
@@ -37,7 +40,7 @@
                 <th>pop</th>
                 <th>title</th>
                 <th>author</th>
-                
+
 
 
             </tr>
@@ -45,17 +48,17 @@
                 foreach (PTTDATAtype card in myPageList)
                 {
 
-                        <tr>
+                    <tr>
 
-                            <th>@card.ID</th>
-                            <th>@card.pop</th>
-                            <th>@card.title</th>
-                            <th>@Html.ActionLink(@card.author, "PTTcontext",new { ID=card.ID})</th>
-                            <th>@card.URL</th>
-                            <th>@card.context</th>
-                            
+                        <th>@card.ID</th>
+                        <th>@card.pop</th>
+                        <th>@card.title</th>
+                        <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
+                        <th>@card.URL</th>
+                        <th>@card.context</th>
 
-                        </tr>
+
+                    </tr>
 
 
                 }

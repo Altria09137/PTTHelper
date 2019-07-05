@@ -20,7 +20,7 @@ namespace PTTDATALOAD.mvc.Models
 
             string Constr = @"Data Source=WIN-K602VN7RVVF\SQLEXPRESS;Initial Catalog=PTT_Helper;Persist Security Info=True;User ID=sa;Password=Miku01";
             SqlConnection sqlConnection = new SqlConnection(Constr);
-            SqlCommand sqlCommand = new SqlCommand("select * from dbo.PTTDATA order by  cast( pop as integer) DESC");
+            SqlCommand sqlCommand = new SqlCommand("select * from dbo.PTTDATA ");
             sqlCommand.Connection = sqlConnection;
             sqlConnection.Open();
             
