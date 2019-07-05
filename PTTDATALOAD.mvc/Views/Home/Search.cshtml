@@ -1,18 +1,66 @@
-﻿
-<h2>搜尋</h2>
-
-<br />
-
-<form method="post" action="/Home/Search">
-    <div class="form-group row">
-        <label for="InputSearchvalue" class="col-sm-2">搜尋數值</label>
-        <div class="col-sm-10">
-            <input type="text" name="POP" />
-        </div>
-
-    </div>
-    <input class="btn btn-default" type="submit" value="搜尋" />
-</form>
+﻿@using PTTDATALOAD.mvc.Models;
+@using MvcPaging
+@using PagedList.Mvc;
 
 
 
+@{
+
+    PagedList.IPagedList<PTTDATAtype> myPageList = (PagedList.IPagedList<PTTDATAtype>)ViewBag.MyPageList;
+    Layout = null;
+
+
+}
+
+
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+
+    <title>PTTDATA-POPSearch</title>
+
+    <table class="table">
+</head>
+
+<body>
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+            <th>pop</th>
+            <th>title</th>
+            <th>author</th>
+
+
+
+        </tr>
+        @{
+            foreach (PTTDATAtype card in myPageList)
+            {
+
+                <tr>
+
+                    <th>@card.ID</th>
+                    <th>@card.pop</th>
+                    <th>@card.title</th>
+                    <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
+                    <th>@card.URL</th>
+                    <th>@card.context</th>
+
+
+                </tr>
+
+
+            }
+        }
+
+    </table>
+    每頁 @myPageList.PageSize 條記錄，共 @myPageList.PageCount 頁，當前第 @myPageList.PageNumber 頁
+    @Html.PagedListPager(myPageList, page => Url.Action("Search", new { page }))
+</body>
+</html>

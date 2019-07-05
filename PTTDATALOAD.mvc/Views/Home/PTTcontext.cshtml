@@ -1,0 +1,41 @@
+﻿@using PTTDATALOAD.mvc.Models;
+@{
+    ViewBag.Title = "PTTcontext";
+    List<PTTDATAtype> cards = ViewBag.cards;
+}
+
+<table class="table">
+    @*<thead>*@
+    @*<tr>*@
+    @*<th>ID</th>*@
+    @*<th>URL</th>*@
+    @*<th>context</th>
+        <th></th>*@
+    </tr>
+    @*</thead>*@
+    <tbody></tbody>
+</table>
+<<body onload="load()">
+    <div>
+        @*@foreach (PTTDATAtype card in cards)
+        {
+            @card.context
+        }*@
+        <text id="displaytext"></text>
+    </div>
+</body>
+
+<script>
+    function load() {
+        @*alert("context");*@
+        }
+    @foreach (PTTDATAtype card in cards)
+    {
+        <text>
+        var con = '@card.context';
+
+        </Text>
+    }
+    //document.getElementById("displaytext").value=con;
+    $('#displaytext').val(con);
+</script>

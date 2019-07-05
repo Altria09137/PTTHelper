@@ -142,6 +142,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\PTTcontext.cs" />
     <Compile Include="Models\PTTDATA.cs" />
     <Compile Include="Models\PTTDATAtype.cs" />
     <Compile Include="Models\Search.cs" />
@@ -188,9 +189,12 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\PTTcontext.cshtml" />
+    <Content Include="Views\Home\SearchDATAget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\SearchDATAget\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

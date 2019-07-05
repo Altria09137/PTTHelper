@@ -15,8 +15,6 @@ namespace PTTDATALOAD.mvc.Controllers
         public ActionResult Index(int page=1)
         {
 
-          
-
             DBmanager dBmanager = new DBmanager();
             List<PTTDATAtype> cards = dBmanager.GetPTTDATA();
             ViewBag.MyPageList = cards.ToPagedList(page, 25);
@@ -25,20 +23,38 @@ namespace PTTDATALOAD.mvc.Controllers
             return View();
         }
 
-        public ActionResult Search(string pop)
+   
+        
+        public ActionResult PTTcontext(int id)
         {
-            Search dBmanager = new Search();
-            PTTDATAtype card = dBmanager.GetPTTDATApop(pop);
-            return View(card);
+            PTTcontext dBmanager = new PTTcontext();
+            List<PTTDATAtype> cards = dBmanager.PTTcontextSearch(id);
+            ViewBag.cards = cards;
+            return View();
         }
+
 
         [HttpPost]
-        public ActionResult Search()
+        public ActionResult Search(string pop,int page = 1)
+        {
+            Search dBmanager = new Search();
+            List<PTTDATAtype> cards = dBmanager.GetPTTDATApop(pop);
+            ViewBag.MyPageList = cards.ToPagedList(page, 25);
+
+            return View();
+        }
+
+     
+
+        public ActionResult SearchDATAget()
         {
 
 
-            return RedirectToAction("Index");
+            return View();
         }
+
+   
+
 
 
 
