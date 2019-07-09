@@ -183,7 +183,7 @@ namespace Load_PTTDATA
 
                     if (re == 100)
                         this.dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
-                    else if (re >= 10)
+                    else if (re >= 10 && 100>re)
                         this.dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Yellow;
                     else
                         this.dataGridView1.Rows[i].DefaultCellStyle.ForeColor = Color.Green;

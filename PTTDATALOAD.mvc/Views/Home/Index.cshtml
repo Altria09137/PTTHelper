@@ -60,24 +60,60 @@
         @{
             foreach (PTTDATAtype card in myPageList)
             {
+                int re = Int32.Parse(@card.pop);
 
-                <tr>
+                if (re == 100)
+                {
+                    <tr>
 
-                    <th>@card.ID</th>
-                    <th>@card.pop</th>
-                    <th>@card.title</th>
-                    <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
-                    <th>@card.URL</th>
-                    <th>@card.context</th>
+                        <th>@card.ID</th>
+                        <th style="color:red";>@card.pop</th>
+                        <th>@card.title</th>
+                        <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
+                        <th>@card.URL</th>
+                        <th>@card.context</th>
 
 
-                </tr>
+                    </tr>
+                }
 
 
+                else if (100 > re && re >= 10)
+                {
+                    <tr>
+                        <th>@card.ID</th>
+                        <th style="color:yellow";>@card.pop</th>
+                        <th>@card.title</th>
+                        <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
+                        <th>@card.URL</th>
+                        <th>@card.context</th>
+                        
+                    </tr>
+                }
+                    else
+                    {
+                    <tr>
+                        <th> @card.ID </th>
+                        <th  style="color:green";> @card.pop </th>
+
+
+                         <th> @card.title </th>
+
+
+                         <th> @Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID }) </th>
+
+
+                         <th> @card.URL </th>
+
+
+                         <th> @card.context </th>
+                     </tr>
+                    }
+
+                }
             }
-        }
 
-    </table>
+                </table>
     每頁 @myPageList.PageSize 條記錄，共 @myPageList.PageCount 頁，當前第 @myPageList.PageNumber 頁
     @Html.PagedListPager(myPageList, page => Url.Action("Index", new { page }))
 
