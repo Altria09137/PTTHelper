@@ -9,63 +9,79 @@
     PagedList.IPagedList<PTTDATAtype> myPageList = (PagedList.IPagedList<PTTDATAtype>)ViewBag.MyPageList;
     Layout = null;
 
+    
 
 }
 
 
-    <html>
-
-    <head>
-
-        <meta name="viewport" content="width=device-width" />
-
-        <link href="~/Content/PagedList.css" rel="stylesheet" />
-
-        <title>PTTDATA</title>
-
-        <table class="table">
-    </head>
-
-    <body>
-        <table>
-            <p>
-                @Html.ActionLink("查詢人氣", "SearchDATAget")
-            </p>
-            <p>
-                @Html.ActionLink("查詢標題關鍵字", "SearchDATAtitle")
-            </p>
-            <tr>
-
-                <th>ID</th>
-                <th>pop</th>
-                <th>title</th>
-                <th>author</th>
 
 
 
-            </tr>
-            @{
-                foreach (PTTDATAtype card in myPageList)
-                {
-
-                    <tr>
-
-                        <th>@card.ID</th>
-                        <th>@card.pop</th>
-                        <th>@card.title</th>
-                        <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
-                        <th>@card.URL</th>
-                        <th>@card.context</th>
+<html>
 
 
-                    </tr>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
 
 
-                }
+    <title>PTTDATA</title>
+
+
+</head>
+
+<body bgcolor="black" text="white">
+
+    <a>
+
+        @Html.ActionLink("查詢人氣", "SearchDATAget", new { @style = "color:white;" })
+    </a>
+
+    <p>
+        @Html.ActionLink("查詢標題關鍵字", "SearchDATAtitle", new { @style = "color:white;" })
+    </p>
+
+    <table class="table">
+
+
+
+        <tr>
+
+            <th>ID</th>
+            <th>pop</th>
+            <th>title</th>
+            <th>author</th>
+
+
+
+        </tr>
+        @{
+            foreach (PTTDATAtype card in myPageList)
+            {
+
+                <tr>
+
+                    <th>@card.ID</th>
+                    <th>@card.pop</th>
+                    <th>@card.title</th>
+                    <th>@Html.ActionLink(@card.author, "PTTcontext", new { ID = card.ID })</th>
+                    <th>@card.URL</th>
+                    <th>@card.context</th>
+
+
+                </tr>
+
+
             }
+        }
 
-        </table>
-        每頁 @myPageList.PageSize 條記錄，共 @myPageList.PageCount 頁，當前第 @myPageList.PageNumber 頁
-        @Html.PagedListPager(myPageList, page => Url.Action("Index", new { page }))
-    </body>
-    </html>
+    </table>
+    每頁 @myPageList.PageSize 條記錄，共 @myPageList.PageCount 頁，當前第 @myPageList.PageNumber 頁
+    @Html.PagedListPager(myPageList, page => Url.Action("Index", new { page }))
+
+</body>
+</html>
+
+

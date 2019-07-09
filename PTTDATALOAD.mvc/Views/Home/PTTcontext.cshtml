@@ -2,40 +2,25 @@
 @{
     ViewBag.Title = "PTTcontext";
     List<PTTDATAtype> cards = ViewBag.cards;
+     Layout = null;
 }
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>PTTcontext</title>
 
-<table class="table">
-    @*<thead>*@
-    @*<tr>*@
-    @*<th>ID</th>*@
-    @*<th>URL</th>*@
-    @*<th>context</th>
-        <th></th>*@
-    </tr>
-    @*</thead>*@
-    <tbody></tbody>
-</table>
-<<body onload="load()">
-    <div>
-        @*@foreach (PTTDATAtype card in cards)
+
+    </head>
+    <body bgcolor="black" text="white">
+
+
+        @foreach (PTTDATAtype card in cards)
         {
-            @card.context
-        }*@
-        <text id="displaytext"></text>
-    </div>
-</body>
 
-<script>
-    function load() {
-        @*alert("context");*@
+
+            <pre>  @card.context   </pre>
+
+
         }
-    @foreach (PTTDATAtype card in cards)
-    {
-        <text>
-        var con = '@card.context';
-
-        </Text>
-    }
-    //document.getElementById("displaytext").value=con;
-    $('#displaytext').val(con);
-</script>
+    </body>
+    </html>

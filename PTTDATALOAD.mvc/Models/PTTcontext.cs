@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace PTTDATALOAD.mvc.Models
 {
     public class PTTcontext
     {
+        SqlConnection conn;
+        DataTable dt = new DataTable();
         public List<PTTDATAtype> PTTcontextSearch(int id)
         {
             List<PTTDATAtype> cards = new List<PTTDATAtype>();
@@ -16,35 +19,43 @@ namespace PTTDATALOAD.mvc.Models
             SqlConnection sqlConnection = new SqlConnection(Constr);
             SqlCommand sqlCommand = new SqlCommand("select * from dbo.PTTDATA where id=@id");
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.Parameters.Add(new SqlParameter ("@id",id) );
+            sqlCommand.Parameters.Add(new SqlParameter("@id", id));
+            SqlDataAdapter dat = new SqlDataAdapter();
+            dat.SelectCommand = sqlCommand;
+            dat.Fill(dt);
+            dat.Dispose();
             sqlConnection.Open();
 
 
-            SqlDataReader reader = sqlCommand.ExecuteReader();
-            if (reader.HasRows)
+
+            try
             {
-                while (reader.Read())
+
+
+
+                for (int i = 0; i < dt.Rows.Count; i++)
                 {
+
+
                     PTTDATAtype card = new PTTDATAtype
                     {
-                        ID = reader.GetInt64(reader.GetOrdinal("id")),
-                        //pop = reader.GetString(reader.GetOrdinal("pop")),
-                        //title = reader.GetString(reader.GetOrdinal("title")),
-                        //author = reader.GetString(reader.GetOrdinal("author")),
-                        //URL = reader.GetString(reader.GetOrdinal("URL")),
-                        context = reader.GetString(reader.GetOrdinal("context"))+"<br>O",
+                        ID = Convert.ToInt32(dt.Rows[i]["ID"]),
+
+                        context = Convert.ToString(dt.Rows[i]["context"]),
                     };
                     cards.Add(card);
-                }
-                   
-                
+                };
+
+
             }
-            else
+            catch (Exception e)
             {
-                Console.WriteLine("資料庫為空！");
+                Console.WriteLine(e.Message);
             }
-            sqlConnection.Close();
+
+
             return cards;
         }
+
     }
 }

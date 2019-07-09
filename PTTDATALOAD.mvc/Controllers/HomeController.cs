@@ -31,6 +31,8 @@ namespace PTTDATALOAD.mvc.Controllers
             List<PTTDATAtype> cards = dBmanager.PTTcontextSearch(id);
             ViewBag.cards = cards;
             return View();
+
+            
         }
 
 
