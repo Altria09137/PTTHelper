@@ -105,6 +105,7 @@ namespace Load_PTTDATA
             this.comboBox1.Items.Add("Pop");
             this.comboBox1.Items.Add("Regional Search");
             this.comboBox1.Items.Add("Basic Search");
+            this.comboBox1.Items.Add("Title Search");
             this.comboBox1.SelectedIndex = 0;
 
         }
@@ -315,6 +316,59 @@ namespace Load_PTTDATA
                         MessageBox.Show("No this value");
                     }
                     
+                }
+                else if (dr == DialogResult.Cancel)
+                {
+                    input.Close();
+                }
+                else
+                {
+                    input.Close();
+                }
+            }
+
+            else if (comboBox1.SelectedIndex ==5)
+            {
+                Connect();
+                dataGridViewSizeMode();
+                conn.Open();
+                Form4 input = new Form4();
+                DialogResult dr = input.ShowDialog();
+                if (dr == DialogResult.OK)
+                {
+                    c = input.GetMsg();
+
+                    try
+                    {
+
+                        string query = $"SELECT  * FROM dbo.PTTDATA  where title like '%{c}%'";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        SqlDataAdapter dat = new SqlDataAdapter();
+                        dat.SelectCommand = cmd;
+                        dat.Fill(dt);
+                        dat.Dispose();
+                        dataGridView1.DataSource = dt;
+                        dataGridView1drowcolor();
+                        conn.Close();
+
+
+                        string count = dataGridView1.Rows.Count.ToString();
+                        if (count == "1")
+                        {
+                            MessageBox.Show("no result");
+                        }
+                        else
+                        {
+                            int result = Int32.Parse(count);
+                            result--;
+                            MessageBox.Show("result have " + result);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("No this value");
+                    }
+
                 }
                 else if (dr == DialogResult.Cancel)
                 {

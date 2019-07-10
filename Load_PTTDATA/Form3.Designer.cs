@@ -72,7 +72,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Key in search value";
+            this.Text = "請輸入數值";
             this.ResumeLayout(false);
             this.PerformLayout();
 
