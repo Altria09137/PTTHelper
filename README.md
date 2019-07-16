@@ -24,7 +24,7 @@ Microsoft SQL Server
 
 1.爬蟲 PTTHelper
 
-透過爬蟲獲取PTT網頁版(https://www.ptt.cc/bbs/Gossiping/index.html)的資料 包含文章標題 作者 內文等等 
+透過爬蟲獲取PTT網頁版 (https://www.ptt.cc/bbs/Gossiping/index.html) 資料 包含文章標題 作者 內文等等 
 
 進行簡易讀取 同時將資料寫入SQL中保存
 
