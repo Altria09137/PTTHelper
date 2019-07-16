@@ -22,14 +22,14 @@ Microsoft SQL Server
 
 專案包含三個程式 分別是:
 
-1.爬蟲
+1.爬蟲 PTTHelper
 
 透過爬蟲獲取PTT網頁版(https://www.ptt.cc/bbs/Gossiping/index.html)的資料 包含文章標題 作者 內文等等 
 
 進行簡易讀取 同時將資料寫入SQL中保存
 
 
-2.後端讀取程式
+2.後端讀取程式Load_PTTDATA
 
 讀取SQL中存放的PTT資料在程式端顯示 並且實現以下功能:
 
@@ -50,7 +50,7 @@ Microsoft SQL Server
 (8) 文章關鍵字搜尋
 
 
-3.前端讀取(透過MVC架構實現)
+3.前端讀取(透過MVC架構實現) PTTDATALOAD.mvc
 
 (1) 將推文按照推噓數以顏色區分
 
