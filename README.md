@@ -1,5 +1,4 @@
-# repos
-LoadPTTDATA
+# PTT_Helper
 
 目的
 
